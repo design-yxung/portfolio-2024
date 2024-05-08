@@ -1,0 +1,15 @@
+@media (max-width: 768px){
+    .w1400{width: 100%; margin: auto;}
+
+    /* 도입 이미지 파트 */
+    #webCover .img{
+        position: relative;
+        width: 60vw;
+    }
+    #webCover .img .title-btn{
+        position: absolute;
+        bottom: 3%; right: 3.5%;
+        display: block;
+        width: 20%;
+    }
+}

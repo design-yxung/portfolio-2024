@@ -1,0 +1,589 @@
+/* import */
+@import url('https://fonts.cdnfonts.com/css/voor');
+@import url(https://db.onlinewebfonts.com/c/0b9856633d4311a19df074ea509d8390?family=Constantia);
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+/* 브라우저 환경 재설정 */
+*{padding: 0; margin: 0; box-sizing: border-box;}
+ul,li{list-style: none;}
+a{color: inherit; text-decoration: none;}
+img{vertical-align: middle; text-align: center;}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+::-webkit-scrollbar-thumb {
+    background-color: var(--mainColor);
+  }
+::-webkit-scrollbar-track {
+    background-color: #efefef;
+  }
+
+/* 브라우저 스타일 설정 */
+:root{
+    --mainColor: #4A8800;
+    --subColor: #000000;
+    --textColor: #3F3F3F;
+    --listTitle: #7A7A7A;
+    --swiper-theme-color:#4A8800 !important;
+}
+.w1400{width: 1400px; margin: auto;}
+
+/* 브라우저 스타일 파트 */
+html, body{
+    width: 100%; height: 100%;
+    scroll-behavior:smooth;
+    font-family: "Pretendard";
+    letter-spacing: -1px;
+    }
+#wrap{width: 100%; height: 100vh; overflow: hidden;}
+/* #wrap{height: 100vh; overflow: hidden;} */
+/* 포트폴리오 도입 */
+#webCover{
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 500;
+    width: 100%; height: 100%;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#webCover .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 도입 이미지 파트 */
+#webCover .img{
+    position: relative;
+    width: 45vw;
+    letter-spacing: 0;
+    text-align: center;
+}
+#webCover .img .title-btn{
+    position: absolute;
+    bottom: 3%; right: 3.5%;
+    display: block;
+    width: 20%;
+}
+#webCover .img .title-btn:hover{
+    animation-name: rotate-btn;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+    animation-iteration-count : infinite;
+}
+#webCover .img .title-btn:not(:hover){
+    animation-name: rotate-btn-reverse;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+}
+#webCover .img .click{
+    position: absolute;
+    bottom: -3vh; right: 5vw;
+    animation-name: text-ani;
+    animation-delay: 3s;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+#webCover .img .click>span{
+    font-family: "Constantia";
+    font-size: 17px;
+    font-weight: 600;
+    display: inline-block;
+    animation-name: text-anime;
+    animation-timing-function: linear;
+    animation-delay: 4s;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    color: var(--textColor);
+    opacity: 0.6;
+}
+/* 도입 이미지 파트 애니메이션 */
+@keyframes rotate-btn{
+    0%{transform:  rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+@keyframes rotate-btn-reverse{
+    0%{transform: rotate(auto);}
+    100%{transform: rotate(0);}
+}
+
+@keyframes text-ani{
+    0%{
+        bottom: -3vh;
+        opacity: 0;
+    }
+    100%{
+        bottom: -2vh;
+        opacity: 1;
+    }
+}
+@keyframes text-anime{
+    0%{
+        transform: translateY(0px)
+    }
+    50%{
+        transform: translateY(-3px)
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+#webCover .title>p{
+    font-size: 20px;
+    font-weight: 300;
+    margin: 60px 0;
+}
+
+
+/* 상단 */
+header{
+    position: fixed;
+    z-index: 100;
+    top: 0; left: 0;
+    width: 100%; height: 50px;
+}
+.headWrap{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+/* 로고 */
+#logo{
+    line-height: 50px;
+    height: 100%;
+}
+#logo img{
+    height: 85%;
+}
+/* 리스트 */
+.mainMenu{
+    display: flex;
+    height: 100%;
+    line-height: 50px;
+
+}
+.mainMenu>li{
+    font-family: 'Voor', sans-serif;
+    letter-spacing: 0;
+    font-size: 25px;
+    padding: 0 20px;
+    color: var(--textColor);
+}
+.mainMenu>li:first-child a{
+    color: var(--mainColor);
+}
+.mainMenu>li:hover a{
+    color: var(--mainColor);
+}
+
+
+/* section */
+section{
+    height: 100vh;
+    min-height: 920px;
+    padding: 80px 0;
+}
+
+/* 타인이 보는 나 */
+#whoIs{
+    background: url(../img/back.png) no-repeat;
+    background-position: 50% 55%;
+}
+#whoIs h2{
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Voor', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#whoIs>p{
+    text-align: center;
+    color: var(--textColor);
+    font-size: 14px;
+    opacity: 0;
+    margin-bottom: 100px;
+    animation-name: textOpacity;
+    animation-duration: 2s;
+    animation-delay: 10s;
+    animation-fill-mode: forwards;
+}
+@keyframes textOpacity{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+#whoIs article{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 200px;
+}
+.mimo{
+    margin: auto;
+    position: relative;
+    display: inline-block;
+}
+.mimo>a{
+    position: absolute;
+    z-index: 20;
+    display: inline-block;
+    width: 180px;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}
+.mimo img{
+    width: 100%;
+    animation-name: imgRotate;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+.mimo img.rot{
+    animation-name: imgRotate2;
+}
+.mimo .text{
+    transform: scale(0);
+    transform-origin: left center;
+    transition: 1s;
+}
+.mimo .textRight{
+    transform-origin: right center;
+}
+.mimo .eval{
+    width: 350px; height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mainColor);
+    border-radius: 100px;
+    line-height: 24px;
+    color: #fff;
+    font-size: 16px;
+}
+.mimo span{
+    display: inline-block;
+    width: 350px;
+    text-align: right;
+    padding: 0 60px;
+    font-size: 14px;
+}
+@keyframes scale{
+    0%,100% {transform: scale(1);}
+    10%{transform: scale(0.9);}
+    50% {transform: scale(1.1);}
+}
+
+@keyframes imgRotate{
+    0%,100%{transform: rotate(0);}
+    50%{transform: rotate(5deg);}
+}
+@keyframes imgRotate2{
+    0%,100%{transform: rotate(0);}
+    50%{transform: rotate(-9deg);}
+}
+
+
+/* 프로필 */
+#profile{
+    display: grid;
+    grid-template-columns: repeat(2, 380px) 350px 1fr;
+    grid-template-rows: repeat(1, 0.8fr) repeat(1, 1fr) repeat(1,0.8fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    }
+#profile article{
+    padding: 35px 30px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#profile article:hover{
+    animation-name: scale2;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+@keyframes scale2{
+    0%,100% {transform: scale(1);}
+    10%{transform: scale(0.98);}
+    50% {transform: scale(1.01);}
+}
+.mine{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: 1 / 1 / 4 / 2;
+}
+.mine>h3{
+    font-family: 'Voor', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    letter-spacing: 1px;
+    color: var(--mainColor);
+    text-align: center;
+}
+.mine .profileImg{
+    width: 100%; height: 75%;
+    text-align: center;
+}
+.mine .profileImg img{
+    height: 95%;
+}
+.mine p{
+    width: 100%;
+    line-height: 30px;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+
+}
+
+/* 프로필 양식 */
+#profile .proForm h4{
+    font-family: "Constantia";
+    font-weight: 300;
+    font-size: 25px;
+    color: var(--mainColor);
+    margin-bottom: 10px;
+}
+#profile .proForm ul>li{
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+
+}
+#profile .proForm ul>li:not(:last-child){
+    margin-bottom: 8.2px;
+}
+#profile .proForm ul>li>h6{
+    width: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--listTitle);
+    letter-spacing: 0;
+}
+#profile .proForm ul>li>p{
+    width: calc(100% - 100px);
+    font-size: 15px;
+}
+/* adout */
+.about{
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.about ul>li:last-child span:first-child{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.about ul>li ion-icon{
+    vertical-align: middle;
+}
+/* info */
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: 2 / 2 / 4 / 3;
+}
+/* activity */
+.activity{
+    grid-area: 1 / 3 / 3 / 5;
+}
+/* skill */
+.skill{
+    grid-area: 3 / 3 / 4 / 4;
+}
+.skill ul{
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.skill ul>li{
+    position: relative;
+    width: 56px; aspect-ratio: 1/1;
+    background: var(--skill) center/cover no-repeat;
+    margin: 0 !important;
+}
+/* mbti */
+.mbti{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: 3 / 4 / 4 / 5;
+}
+.mbti>img{
+    height: 100%;
+}
+.mbti>p{
+    margin-top: 5px;
+    color: var(--mainColor);
+    font-weight: 700;
+}
+
+#work{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#work .workIdx{
+    position: relative;
+    z-index: 20;
+    width: 45px; height: 760px;
+}
+#work .workIdx>li{
+    height: calc(100% / 3);
+    border: 2px solid #acacac;
+    border-right: 2px solid var(--mainColor);
+    background-color: #d8d8d8;
+    writing-mode: vertical-lr;
+    font-family: "Constantia";
+    text-align: center;
+    line-height: 45px;
+    font-size: 17px;
+    color: #acacac;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+#work .workIdx>li.on{
+    border-radius: 5px 0 0 5px !important;
+    border: 2px solid var(--mainColor) !important;
+    border-right: none !important;
+    background-color: #fff;
+    color: var(--mainColor);
+}
+#work .workIdx>li:first-child{
+    border-radius: 5px 0 0 0;
+    border-bottom: none;
+}
+#work .workIdx>li:nth-child(2){
+    border-bottom: none;
+}
+#work .workIdx>li.on:nth-child(2){
+    border-top: 2px solid var(--mainColor);
+    border-bottom: 2px solid var(--mainColor);
+}
+#work .workIdx>li:last-child{
+    border-radius: 0 0 0 5px;
+}
+#work .workIdx>li>a{
+    display: inline-block;
+    width: 100%; height: 100%;
+}
+#work .workBoard{
+    position: absolute;
+    width: calc(100% - 47px); height: 760px;
+    right: 0;
+    z-index: 19;
+    border: 2px solid var(--mainColor);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+}
+#work .workBoard>li{
+    position: absolute;
+    left: 0;top: 0;
+    background-color: #fff;
+    width: 100%; height: 100%;
+    padding: 50px;
+}
+#work .workBoard .swiper{
+    background-color: #3F3F3F;
+    width: 100%; height: 100%;
+    
+}
+#work .swiper-slide{
+    position: relative;
+    width: 100%; height: 100%;
+    background: var(--workImage) center/cover no-repeat;
+}
+#work .workInfo{
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    width: 100%; height: 200px;
+    padding: 0 50px;
+    padding-top: 60px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9));
+    color: #fff;
+}
+#work .workInfo h2{
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-shadow: 0 0 8px #00000086;
+    font-weight: 600;
+}
+#work .workInfo a{
+    padding: 10px 20px;
+    font-size: 13px !important;
+    font-weight: 600;
+    color: var(--mainColor);
+    border-radius: 50px;
+    outline: none;
+    border: 1px solid var(--mainColor);
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.5s;
+    letter-spacing: 0;
+}
+#work .workInfo a:not(:first-of-type
+){
+    background-color: #4A8800;
+    color: #fff;
+}
+
+.workPop{
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    z-index: 500;
+    width: 100%; height: 100%;
+    background-color: #000000ce;
+    backdrop-filter: blur(4px);
+}
+.workPop .popupFrame{
+    position: absolute;
+    z-index: 2;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px 30px 30px 30px;
+    background-color: #d8d8d8;
+    border: 1px solid #4A8800;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    visibility: hidden;
+}
+.workPop .popupFrame.item_open{
+    visibility: visible;
+    z-index: 10;
+}
+.workPop .popupFrame button{
+    position: absolute;
+    right: 15px; top: 10px;
+    font-size: 50px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--mainColor);
+    cursor: pointer;
+}
+.workPop .popupFrame .work-form{
+    width: 1500px; height: 755px;
+    overflow: auto;
+}
+.workPop .popupFrame .work-form>img{
+    width: 100%;
+}
+
+
+.workPop{
+    display: none;
+}
